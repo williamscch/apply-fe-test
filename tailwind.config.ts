@@ -8,10 +8,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        surface_light: "var(--surface-light)",
+        surface_neutral: "var(--surface-neutral)",
+        surface_muted: "var(--surface-muted)",
+        surface_interactive: "var(--surface-interactive)",
+        surface_contrast: "var(--surface-contrast)",
+        border_light: "var(--border-light)",
+        border_neutral: "var(--border-neutral)",
+        border_contrast: "var(--border-contrast)",
+        text_light: "var(--text-light)",
+        text_contrast: "var(--text-contrast)",
       },
     },
   },
