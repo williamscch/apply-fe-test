@@ -1,7 +1,9 @@
+import PageLayout from "@/components/templates/PageLayout";
+
 export default async function Home() {
   return (
-    <main className="flex flex-col items-center justify-between font-bold text-4xl">
-      Hello, world!
-    </main>
+    <PageLayout>
+      <div className="bg-surface_contrast text-wrap min-h-64"></div>
+    </PageLayout>
   );
 }
