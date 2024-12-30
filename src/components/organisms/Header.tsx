@@ -1,9 +1,9 @@
 import Image from "next/image";
-import CartIcon from "@/components/atoms/CartIcon";
+import CartIcon from "@/components/atoms/icons/CartIcon";
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full h-16 bg-surface_neutral py-5 px-4 flex justify-center">
+    <header className="sticky top-0 left-0 w-full h-16 bg-surface_neutral py-5 px-4 flex justify-center">
       <nav className="w-full max-w-7xl flex justify-between">
         <div>
           <Image
