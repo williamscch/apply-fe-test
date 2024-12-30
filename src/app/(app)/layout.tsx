@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
+import MainLayout from "@/components/templates/MainLayout";
 
 const archivo = Archivo({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={archivo.className}>{children}</body>
+      <body className={archivo.className}>
+        <MainLayout>{children}</MainLayout>
+      </body>
     </html>
   );
 }
