@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Image from "next/image";
+import { ROUTES } from "@/config/routes";
 import CartIcon from "@/components/atoms/icons/CartIcon";
 
 export function Header() {
@@ -6,15 +8,19 @@ export function Header() {
     <header className="sticky top-0 left-0 w-full h-16 bg-surface_neutral py-5 px-4">
       <nav className="w-full max-w-7xl mx-auto flex justify-between">
         <div>
-          <Image
-            src="/logos/gamershop.png"
-            width={150}
-            height={24}
-            alt="site-logo"
-          />
+          <Link href={ROUTES.home} id={`${ROUTES.home}-header-link`}>
+            <Image
+              src="/logos/gamershop.png"
+              width={150}
+              height={24}
+              alt="site-logo"
+            />
+          </Link>
         </div>
         <div>
-          <CartIcon />
+          <Link href={ROUTES.cart} id={`${ROUTES.cart}-header-link`}>
+            <CartIcon />
+          </Link>
         </div>
       </nav>
     </header>
