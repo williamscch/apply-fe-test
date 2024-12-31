@@ -31,7 +31,10 @@ export default function CatalogGames({
         ))}
       </ul>
       {showButton && (
-        <Button className="mt-12 uppercase" onClick={onButtonClick}>
+        <Button
+          className="mt-6 sm:mt-12 uppercase w-full xs:w-fit"
+          onClick={onButtonClick}
+        >
           {buttonLabel}
         </Button>
       )}
