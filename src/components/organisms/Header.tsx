@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ROUTES } from "@/config/routes";
-import CartIcon from "@/components/atoms/icons/CartIcon";
+import Icon from "@/components/atoms/Icon";
 
 export function Header() {
   return (
@@ -17,9 +17,10 @@ export function Header() {
             />
           </Link>
         </div>
+
         <div>
           <Link href={ROUTES.cart} id={`${ROUTES.cart}-header-link`}>
-            <CartIcon />
+            <Icon name="cart" />
           </Link>
         </div>
       </nav>
