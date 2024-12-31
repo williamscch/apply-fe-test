@@ -1,13 +1,14 @@
 import { Game } from "@/types/game";
 import Image from "next/image";
 import Button from "../atoms/Button";
+import Text from "../atoms/Text";
 
 interface CatalogCardProps {
   game: Game;
 }
 export default function CatalogCard({ game }: CatalogCardProps) {
   return (
-    <div className="border-half border-border_neutral rounded-2xl overflow-hidden p-6">
+    <div className="border-half border-border_neutral rounded-2xl overflow-hidden p-6 min-w-56">
       <div className="flex flex-col gap-5">
         <div className="w-full rounded-t-2xl overflow-hidden aspect-1_16 md:aspect-1_38 bg-surface_neutral">
           <Image
@@ -20,10 +21,14 @@ export default function CatalogCard({ game }: CatalogCardProps) {
         </div>
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-3">
-            <h2>{game.genre}</h2>
+            <Text variant="h5" className="uppercase">
+              {game.genre}
+            </Text>
             <div className="grid grid-cols-2fr_1fr w-full gap-1">
-              <h2 className="break-all">{game.name}</h2>
-              <span className="text-end">{game.price}</span>
+              <Text variant="h4">{game.name}</Text>
+              <Text variant="h3" className="text-end">
+                ${game.price}
+              </Text>
             </div>
           </div>
 

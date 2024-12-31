@@ -1,14 +1,15 @@
 "use client";
 
-import Button from "@/components/atoms/Button";
-import PageLayout from "@/components/templates/PageLayout";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { fetchGames } from "@/services/api";
 import { Game } from "@/types/game";
 import { availableFilters } from "@/utils/endpoint";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import Button from "@/components/atoms/Button";
+import PageLayout from "@/components/templates/PageLayout";
 import Dropdown from "@/components/molecules/Dropdown";
 import CatalogCard from "@/components/molecules/CatalogCard";
+import Text from "@/components/atoms/Text";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -24,7 +25,7 @@ export default function Home() {
   return (
     <PageLayout>
       <div className="text-wrap min-h-64">
-        <h1 className="text-2xl font-bold">Games</h1>
+        <Text variant="h1">Top Sellers</Text>
         <ul>
           <Dropdown
             label="Genre"
