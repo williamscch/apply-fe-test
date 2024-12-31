@@ -10,6 +10,7 @@ export interface DropdownProps {
   onChange: (value: string) => void;
   labelCn?: string;
   selectCn?: string;
+  className?: string;
 }
 
 export default function Dropdown({
@@ -20,9 +21,13 @@ export default function Dropdown({
   onChange,
   labelCn,
   selectCn,
+  className,
 }: DropdownProps) {
   return (
-    <div className="relative flex gap-6 w-fit" id={`${id}-container`}>
+    <div
+      className={`relative flex items-center gap-6 w-fit ${className}`}
+      id={`${id}-container`}
+    >
       <Label className={labelCn} htmlFor={`${id}-select`}>
         {label}
       </Label>

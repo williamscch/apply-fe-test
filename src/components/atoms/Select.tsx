@@ -16,7 +16,7 @@ export default function Select({
 }: SelectProps) {
   return (
     <select
-      className={`${"border-none outline-none appearance-none bg-transparent text-xl px-4 cursor-pointer"} ${className}`}
+      className={`border-none outline-none appearance-none bg-transparent text-xl px-4 cursor-pointer ${className}`}
       value={value}
       inputMode="text"
       id={id}
