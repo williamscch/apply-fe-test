@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
-import MainLayout from "@/components/templates/MainLayout";
+import MainLayout from "@/components/templates/shared/MainLayout";
 
 const archivo = Archivo({ subsets: ["latin"], weight: ["400", "500", "700"] });
 

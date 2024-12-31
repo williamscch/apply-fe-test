@@ -6,10 +6,11 @@ import { fetchGames } from "@/services/api";
 import { Game } from "@/types/game";
 import { availableFilters } from "@/utils/endpoint";
 import Button from "@/components/atoms/Button";
-import PageLayout from "@/components/templates/PageLayout";
 import Dropdown from "@/components/molecules/Dropdown";
 import CatalogCard from "@/components/molecules/CatalogCard";
 import Text from "@/components/atoms/Text";
+import PageTemplate from "@/components/templates/shared/PageTemplate";
+import CatalogGames from "@/components/templates/catalog/CatalogGames";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -23,25 +24,21 @@ export default function Home() {
   }, []);
 
   return (
-    <PageLayout>
+    <PageTemplate>
       <div className="text-wrap min-h-64">
         <Text variant="h1">Top Sellers</Text>
         <ul>
-          <Dropdown
+          {/* <Dropdown
             label="Genre"
             onChange={(value) => {}}
             id="genre-select"
             options={availableFilters}
             value=""
-          />
+          /> */}
           <Button>SEE MORE</Button>
-          {games.map((game) => (
-            <li key={game.id}>
-              <CatalogCard game={game} />
-            </li>
-          ))}
+          <CatalogGames games={games} />
         </ul>
       </div>
-    </PageLayout>
+    </PageTemplate>
   );
 }
