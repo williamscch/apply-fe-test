@@ -8,7 +8,7 @@ interface CatalogCardProps {
 }
 export default function CatalogCard({ game }: CatalogCardProps) {
   return (
-    <div className="border-half border-border_neutral rounded-2xl overflow-hidden p-6 flex flex-col">
+    <div className="w-full h-full border-half border-border_neutral rounded-2xl overflow-hidden p-6 flex flex-col">
       <div className="w-full rounded-t-2xl overflow-hidden aspect-1_16 md:aspect-1_38 bg-surface_neutral">
         <Image
           width={240}
