@@ -18,7 +18,7 @@ export default function Button({
 
   const variantClasses = {
     default: "bg-surface_interactive border-none text-text_light",
-    outline: "bg-transparent border-b border-border_contrast text-text_light",
+    outline: "bg-transparent border border-border_contrast text-text_contrast",
     icon: "h-fit bg-transparent p-2",
   };
 

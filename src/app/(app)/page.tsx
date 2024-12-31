@@ -8,6 +8,7 @@ import { availableFilters } from "@/utils/endpoint";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Dropdown from "@/components/molecules/Dropdown";
+import CatalogCard from "@/components/molecules/CatalogCard";
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -34,8 +35,8 @@ export default function Home() {
           />
           <Button>SEE MORE</Button>
           {games.map((game) => (
-            <li key={game.id} className="text-text_light">
-              {game.name}
+            <li key={game.id}>
+              <CatalogCard game={game} />
             </li>
           ))}
         </ul>
