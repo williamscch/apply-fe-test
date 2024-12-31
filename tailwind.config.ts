@@ -18,6 +18,7 @@ const config: Config = {
         border_neutral: "var(--border-neutral)",
         border_contrast: "var(--border-contrast)",
         text_light: "var(--text-light)",
+        text_neutral: "var(--text-neutral)",
         text_contrast: "var(--text-contrast)",
       },
     },
