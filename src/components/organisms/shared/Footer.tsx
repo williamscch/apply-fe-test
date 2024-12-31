@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ROUTES } from "@/config/routes";
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="h-44 w-full bg-surface_contrast">
       <div className="h-full w-full grid place-items-center">

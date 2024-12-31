@@ -11,7 +11,7 @@ interface TextProps {
 export default function Text({
   children,
   variant = "p",
-  className,
+  className = "",
 }: TextProps) {
   const variantStyles = {
     h1: "text-4xl font-bold",

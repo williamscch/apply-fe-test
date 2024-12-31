@@ -6,13 +6,14 @@ export interface SelectProps {
   onChange: (value: string) => void;
   className?: string;
 }
+
 export default function Select({
   id,
   label,
   value,
   options,
   onChange,
-  className,
+  className = "",
 }: SelectProps) {
   return (
     <select

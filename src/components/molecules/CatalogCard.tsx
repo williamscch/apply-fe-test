@@ -2,13 +2,15 @@ import { Game } from "@/types/game";
 import Image from "next/image";
 import Button from "@/components/atoms/Button";
 import Text from "@/components/atoms/Text";
+import Card from "@/components/atoms/Card";
 
 interface CatalogCardProps {
   game: Game;
 }
+
 export default function CatalogCard({ game }: CatalogCardProps) {
   return (
-    <div className="w-full h-full border-half border-border_neutral rounded-2xl overflow-hidden p-6 flex flex-col">
+    <Card>
       <div className="w-full rounded-t-2xl overflow-hidden aspect-1_16 md:aspect-1_38 bg-surface_neutral">
         <Image
           width={240}
@@ -36,6 +38,6 @@ export default function CatalogCard({ game }: CatalogCardProps) {
           ADD TO CART
         </Button>
       </div>
-    </div>
+    </Card>
   );
 }

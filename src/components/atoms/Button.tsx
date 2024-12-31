@@ -10,7 +10,7 @@ export default function Button({
   onClick,
   children,
   disabled = false,
-  className,
+  className = "",
   variant = "default",
 }: ButtonProps) {
   const baseClass =

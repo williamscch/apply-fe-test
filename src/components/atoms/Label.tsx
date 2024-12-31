@@ -4,7 +4,11 @@ interface LabelProps {
   className?: string;
 }
 
-export default function Label({ htmlFor, children, className }: LabelProps) {
+export default function Label({
+  htmlFor,
+  children,
+  className = "",
+}: LabelProps) {
   return (
     <label
       htmlFor={htmlFor}

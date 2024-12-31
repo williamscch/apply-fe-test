@@ -21,7 +21,7 @@ export default function Dropdown({
   onChange,
   labelCn,
   selectCn,
-  className,
+  className = "",
 }: DropdownProps) {
   return (
     <div
