@@ -18,8 +18,7 @@ const useGames = (
       const handleFetching = async () => {
         setLoading(true);
         try {
-          const genreParsed = genre === "initial" ? "" : genre;
-          const data = await fetchGames(genreParsed, page);
+          const data = await fetchGames(genre === "all" ? "" : genre, page);
           setGames(data.games);
           setLoading(false);
         } catch (err) {

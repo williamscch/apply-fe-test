@@ -5,6 +5,7 @@ export interface SelectProps {
   options: string[];
   onChange: (value: string) => void;
   className?: string;
+  defaultOption?: { label: string; value: string };
 }
 
 export default function Select({
@@ -14,6 +15,7 @@ export default function Select({
   options,
   onChange,
   className = "",
+  defaultOption = { label: "All", value: "" },
 }: SelectProps) {
   return (
     <select
@@ -25,7 +27,7 @@ export default function Select({
       onChange={(e) => onChange(e.target.value)}
       aria-label={label}
     >
-      <option value="">All</option>
+      <option value={defaultOption.value}>{defaultOption.label}</option>
 
       {options?.map((e, i) => (
         <option key={e + i} value={e}>

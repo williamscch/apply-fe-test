@@ -11,6 +11,7 @@ export interface DropdownProps {
   labelCn?: string;
   selectCn?: string;
   className?: string;
+  defaultOption?: { label: string; value: string };
 }
 
 export default function Dropdown({
@@ -22,6 +23,7 @@ export default function Dropdown({
   labelCn,
   selectCn,
   className = "",
+  defaultOption,
 }: DropdownProps) {
   return (
     <div
@@ -38,6 +40,7 @@ export default function Dropdown({
         onChange={onChange}
         label={label}
         options={options}
+        defaultOption={defaultOption}
       />
       <Icon
         name="dropdown"

@@ -23,6 +23,7 @@ export default function CatalogHeader({
         id="genre-select"
         options={availableFilters}
         value={currentGenre}
+        defaultOption={{ label: "All", value: "all" }}
       />
     </section>
   );
