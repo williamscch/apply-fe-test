@@ -5,7 +5,7 @@ import Icon from "@/components/atoms/Icon";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 left-0 w-full h-16 bg-surface_neutral py-5 px-4">
+    <header className="sticky top-0 left-0 w-full h-16 bg-surface_neutral py-5 px-4 z-50">
       <nav className="w-full max-w-7xl mx-auto flex justify-between">
         <div>
           <Link href={ROUTES.home} id={`${ROUTES.home}-header-link`}>

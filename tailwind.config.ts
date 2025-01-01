@@ -24,8 +24,6 @@ const config: Config = {
         text_light: "var(--text-light)",
         text_neutral: "var(--text-neutral)",
         text_contrast: "var(--text-contrast)",
-        text_interactive: "var(--text-interactive)",
-        text_interactive_light: "var(--text-interactive_light)",
       },
       borderWidth: {
         half: "0.5px",

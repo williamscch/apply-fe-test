@@ -2,7 +2,15 @@ import { availableFilters } from "@/utils/endpoint";
 import Text from "@/components/atoms/Text";
 import Dropdown from "@/components/molecules/Dropdown";
 
-export default function CatalogHeader() {
+interface CatalogHeaderProps {
+  setGenre: (genre: string) => void;
+  currentGenre: string;
+}
+
+export default function CatalogHeader({
+  setGenre,
+  currentGenre,
+}: CatalogHeaderProps) {
   return (
     <section className="grid gap-12">
       <Text variant="h1">Top Sellers</Text>
@@ -11,10 +19,10 @@ export default function CatalogHeader() {
         selectCn="w-full"
         labelCn="pr-6 border-r border-border_contrast max-h-6"
         label="Genre"
-        onChange={(value) => {}}
+        onChange={setGenre}
         id="genre-select"
         options={availableFilters}
-        value=""
+        value={currentGenre}
       />
     </section>
   );

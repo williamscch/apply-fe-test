@@ -1,4 +1,4 @@
-import { Game } from "@/types/game";
+import { Game } from "@/types/games";
 import Image from "next/image";
 import Button from "@/components/atoms/Button";
 import Text from "@/components/atoms/Text";

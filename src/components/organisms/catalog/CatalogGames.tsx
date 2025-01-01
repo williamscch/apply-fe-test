@@ -1,4 +1,4 @@
-import { Game } from "@/types/game";
+import { Game } from "@/types/games";
 import CatalogCard from "@/components/molecules/CatalogCard";
 import Button from "@/components/atoms/Button";
 
@@ -24,11 +24,12 @@ export default function CatalogGames({
       <ul
         className={`grid gap-6 sm:grid-cols-2 sm:gap-9 lg:grid-cols-3 lg:gap-12" ${gridClassname}`}
       >
-        {games.map((game) => (
-          <li key={game.id}>
-            <CatalogCard key={game.id} game={game} />
-          </li>
-        ))}
+        {games.length &&
+          games.map((game) => (
+            <li key={game.id}>
+              <CatalogCard key={game.id} game={game} />
+            </li>
+          ))}
       </ul>
       {showButton && (
         <Button
