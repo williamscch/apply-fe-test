@@ -15,6 +15,7 @@ export default function Loader({
     <div
       className={`flex-1 grid place-items-center py-16 ${className}`}
       role="status"
+      aria-live="polite"
     >
       <Icon
         name="spinner"
