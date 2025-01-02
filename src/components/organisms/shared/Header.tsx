@@ -37,7 +37,7 @@ export default function Header() {
           {totalQuantity && hydrated ? (
             <Badge
               label={totalQuantity.toString()}
-              className="!font-bold text-xxs text-text_neutral !bg-surface_light border border-border_neutral rounded-full absolute -top-1.5 -right-1.5 py-0.5 px-1"
+              className="!font-bold !py-0.5 !px-1 text-xxs border border-border_neutral rounded-full absolute -top-1.5 -right-1.5 "
             />
           ) : null}
         </div>
