@@ -6,7 +6,7 @@ interface BadgeProps {
 export default function Badge({ label, className }: BadgeProps) {
   return (
     <span
-      className={`bg-surface_muted font-normal text-base text-text_contrast rounded px-2 py-1 ${className}`}
+      className={`bg-surface_muted font-normal text-base text-text_contrast rounded px-2 py-1 pointer-events-none ${className}`}
     >
       {label}
     </span>

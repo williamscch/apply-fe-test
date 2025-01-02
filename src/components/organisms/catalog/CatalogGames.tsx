@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { Game } from "@/types/games";
+import { useCartContext } from "@/context/CartContext";
 import CatalogCard from "@/components/molecules/CatalogCard";
 import Button from "@/components/atoms/Button";
 import Text from "@/components/atoms/Text";
@@ -23,21 +25,40 @@ export default function CatalogGames({
   loading = false,
   loadMoreButton,
 }: CatalogGamesProps) {
+  const { isInCart, addToCart, removeFromCart } = useCartContext();
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
   const hasGames = games?.length > 0;
 
   const renderGames = hasGames && (
     <ul
       className={`grid gap-6 sm:grid-cols-2 sm:gap-9 lg:grid-cols-3 lg:gap-12 ${gridClassname}`}
     >
-      {games.map((game) => (
-        <li key={game.id}>
-          <CatalogCard
-            key={game.id}
-            game={game}
-            primaryButton={{ onClick: () => {}, label: "Add to cart" }}
-          />
-        </li>
-      ))}
+      {games.map((game) => {
+        const inCart = isInCart(game.id);
+
+        return (
+          <li key={game.id}>
+            <CatalogCard
+              key={game.id}
+              game={game}
+              primaryButton={{
+                onClick: () =>
+                  inCart ? removeFromCart(game) : addToCart(game),
+                label: !hydrated
+                  ? "Loading..."
+                  : inCart
+                  ? "Remove"
+                  : "Add to cart",
+              }}
+            />
+          </li>
+        );
+      })}
     </ul>
   );
 

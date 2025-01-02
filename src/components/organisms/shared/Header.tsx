@@ -1,9 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { ROUTES } from "@/config/routes";
+import { useCartContext } from "@/context/CartContext";
 import Icon from "@/components/atoms/Icon";
+import Badge from "@/components/atoms/Badge";
 
 export default function Header() {
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+  const { totalQuantity } = useCartContext();
+
   return (
     <header className="sticky top-0 left-0 w-full h-16 bg-surface_neutral py-5 px-4 z-50">
       <nav className="w-full max-w-7xl mx-auto flex justify-between">
@@ -18,10 +30,16 @@ export default function Header() {
           </Link>
         </div>
 
-        <div>
+        <div className="relative">
           <Link href={ROUTES.cart} id={`${ROUTES.cart}-header-link`}>
             <Icon name="cart" />
           </Link>
+          {totalQuantity && hydrated ? (
+            <Badge
+              label={totalQuantity.toString()}
+              className="!font-bold text-xxs text-text_neutral !bg-surface_light border border-border_neutral rounded-full absolute -top-1.5 -right-1.5 py-0.5 px-1"
+            />
+          ) : null}
         </div>
       </nav>
     </header>

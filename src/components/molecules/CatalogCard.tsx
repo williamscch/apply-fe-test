@@ -8,8 +8,8 @@ import Badge from "@/components/atoms/Badge";
 interface CatalogCardProps {
   game: Game;
   primaryButton?: {
-    label: string;
-    onClick: (game: Game) => void;
+    label?: string;
+    onClick?: (game: Game) => void;
   };
 }
 
@@ -48,9 +48,9 @@ export default function CatalogCard({ game, primaryButton }: CatalogCardProps) {
           <Button
             variant="outline"
             className="w-full mt-auto uppercase"
-            onClick={() => primaryButton.onClick(game)}
+            onClick={() => primaryButton.onClick?.(game)}
           >
-            {primaryButton.label}
+            {primaryButton.label || "Add to cart"}
           </Button>
         ) : null}
       </div>
