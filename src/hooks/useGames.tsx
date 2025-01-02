@@ -14,23 +14,29 @@ const useGames = (
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (genre !== initialGenre || page !== initialPage || games.length === 0) {
-      const handleFetching = async () => {
-        setLoading(true);
-        try {
-          const data = await fetchGames(genre === "all" ? "" : genre, page);
-          setGames(data.games);
-          setLoading(false);
-        } catch (err) {
-          const error = err as Error;
-          setError(error?.message);
-          setLoading(false);
-        }
-      };
+    const handleFetching = async () => {
+      setLoading(true);
+      try {
+        const data = await fetchGames(genre === "all" ? "" : genre, page);
+        setGames((prevGames) =>
+          page === 1 ? data.games : [...prevGames, ...data.games]
+        );
+        setLoading(false);
+      } catch (err) {
+        const error = err as Error;
+        setError(error?.message);
+        setLoading(false);
+      }
+    };
 
-      handleFetching();
-    }
-  }, [genre, page, initialGenre, initialPage]);
+    handleFetching();
+  }, [genre, page]);
+
+  // Reset games and page when genre changes
+  useEffect(() => {
+    setGames([]);
+    setPage(1);
+  }, [genre]);
 
   return {
     games,
