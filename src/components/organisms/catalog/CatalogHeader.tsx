@@ -1,4 +1,4 @@
-import { availableFilters } from "@/utils/endpoint";
+import { availableFilters } from "@/constants/gamesFilters";
 import Text from "@/components/atoms/Text";
 import Dropdown from "@/components/molecules/Dropdown";
 
