@@ -1,16 +1,13 @@
 import Text from "@/components/atoms/Text";
 
-interface CartHeaderProps {
-  title?: string;
+interface PageHeaderProps {
+  title: string;
   subtitle?: string;
 }
 
-export default function CartHeader({
-  title = "Your Cart",
-  subtitle,
-}: CartHeaderProps) {
+export default function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
-    <section className="grid gap-3">
+    <section className="grid gap-3 pt-8 md:pt-12">
       <Text variant="h1">{title}</Text>
       {subtitle && (
         <Text variant="h2" className="font-normal">

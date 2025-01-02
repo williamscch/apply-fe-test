@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ROUTES } from "@/config/routes";
 import { useCartContext } from "@/context/CartContext";
-import Icon from "@/components/atoms/Icon";
+import Icon, { IconName } from "@/components/atoms/Icon";
 import Badge from "@/components/atoms/Badge";
 
 export default function Header() {
@@ -32,7 +32,7 @@ export default function Header() {
 
         <div className="relative">
           <Link href={ROUTES.cart} id={`${ROUTES.cart}-header-link`}>
-            <Icon name="cart" />
+            <Icon name={IconName.cart} />
           </Link>
           {totalQuantity && hydrated ? (
             <Badge

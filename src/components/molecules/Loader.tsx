@@ -1,4 +1,4 @@
-import Icon from "@/components/atoms/Icon";
+import Icon, { IconName } from "@/components/atoms/Icon";
 
 interface LoaderProps {
   iconSize?: number;
@@ -18,7 +18,7 @@ export default function Loader({
       aria-live="polite"
     >
       <Icon
-        name="spinner"
+        name={IconName.spinner}
         viewBox={iconViewBox}
         size={iconSize}
         className="animate-spin"
