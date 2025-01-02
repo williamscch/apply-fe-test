@@ -22,7 +22,7 @@ export default function PageHeaderWithLink({
       >
         {link.icon && <Icon name={IconName.arrowLeft} color="#3B3B3B" />}
 
-        <Text variant="h5" className="font-medium">
+        <Text variant="p" className="font-medium">
           {link.label}
         </Text>
       </Link>
