@@ -8,20 +8,20 @@ interface CatalogGamesProps {
   games: Game[];
   gridClassname?: string;
   className?: string;
-  showButton?: boolean;
-  buttonLabel?: string;
   loading?: boolean;
-  onButtonClick?: () => void;
+  loadMoreButton?: {
+    render: boolean;
+    label?: string;
+    onClick: () => void;
+  };
 }
 
 export default function CatalogGames({
   games,
   gridClassname,
   className,
-  buttonLabel = "SEE MORE",
-  showButton = true,
   loading = false,
-  onButtonClick,
+  loadMoreButton,
 }: CatalogGamesProps) {
   const hasGames = games?.length > 0;
 
@@ -31,7 +31,11 @@ export default function CatalogGames({
     >
       {games.map((game) => (
         <li key={game.id}>
-          <CatalogCard key={game.id} game={game} />
+          <CatalogCard
+            key={game.id}
+            game={game}
+            primaryButton={{ onClick: () => {}, label: "Add to cart" }}
+          />
         </li>
       ))}
     </ul>
@@ -49,12 +53,12 @@ export default function CatalogGames({
     </div>
   );
 
-  const renderButton = showButton && (
+  const renderButton = loadMoreButton?.render && (
     <Button
       className="mt-6 sm:mt-12 uppercase w-full xs:w-fit"
-      onClick={onButtonClick}
+      onClick={() => loadMoreButton.onClick()}
     >
-      {buttonLabel}
+      {loadMoreButton.label || "SEE MORE"}
     </Button>
   );
 

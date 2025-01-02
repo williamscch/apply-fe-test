@@ -24,9 +24,11 @@ export default function CatalogTemplate({
       <CatalogHeader currentGenre={currentGenre} setGenre={onGenreChange} />
       <CatalogGames
         games={games}
-        onButtonClick={onLoadMore}
-        showButton={loadMoreEnabled}
         loading={loading}
+        loadMoreButton={{
+          render: loadMoreEnabled,
+          onClick: onLoadMore,
+        }}
       />
     </section>
   );

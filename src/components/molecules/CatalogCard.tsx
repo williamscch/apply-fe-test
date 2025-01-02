@@ -3,14 +3,24 @@ import Image from "next/image";
 import Button from "@/components/atoms/Button";
 import Text from "@/components/atoms/Text";
 import Card from "@/components/atoms/Card";
+import Badge from "@/components/atoms/Badge";
 
 interface CatalogCardProps {
   game: Game;
+  primaryButton?: {
+    label: string;
+    onClick: (game: Game) => void;
+  };
 }
 
-export default function CatalogCard({ game }: CatalogCardProps) {
+export default function CatalogCard({ game, primaryButton }: CatalogCardProps) {
+  const renderNewBadge = game.isNew ? (
+    <Badge label="New" className="absolute m-3" />
+  ) : null;
+
   return (
     <Card>
+      {renderNewBadge}
       <div className="w-full rounded-t-2xl overflow-hidden aspect-1_16 md:aspect-1_38 bg-surface_neutral">
         <Image
           width={240}
@@ -34,9 +44,15 @@ export default function CatalogCard({ game }: CatalogCardProps) {
           </div>
         </div>
 
-        <Button variant="outline" className="w-full mt-auto">
-          ADD TO CART
-        </Button>
+        {primaryButton ? (
+          <Button
+            variant="outline"
+            className="w-full mt-auto uppercase"
+            onClick={() => primaryButton.onClick(game)}
+          >
+            {primaryButton.label}
+          </Button>
+        ) : null}
       </div>
     </Card>
   );
