@@ -12,6 +12,9 @@ const config: Config = {
         xxs: "320px",
         xs: "480px",
       },
+      fontSize: {
+        xxs: ["10px", "10px"],
+      },
       colors: {
         surface_light: "var(--surface-light)",
         surface_neutral: "var(--surface-neutral)",

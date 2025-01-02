@@ -21,13 +21,6 @@ export default function CatalogPage({
   const { games, loadMoreEnabled, loading, setGenre, handleLoadMore } =
     useGames(initialGames, currentGenre, initialTotalPages);
 
-  const handleGenreChange = (newGenre: string) => {
-    if (newGenre !== currentGenre) {
-      setGenre(newGenre);
-      setGenreInURL(newGenre);
-    }
-  };
-
   return (
     <PageTemplate>
       <CatalogTemplate
@@ -35,7 +28,11 @@ export default function CatalogPage({
         currentGenre={currentGenre}
         loading={loading}
         loadMoreEnabled={loadMoreEnabled}
-        onGenreChange={handleGenreChange}
+        onGenreChange={(newGenre) => {
+          if (newGenre === currentGenre) return;
+          setGenre(newGenre);
+          setGenreInURL(newGenre);
+        }}
         onLoadMore={handleLoadMore}
       />
     </PageTemplate>

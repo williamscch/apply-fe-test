@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { Game } from "@/types/games";
+import { useCartContext } from "@/context/CartContext";
 import CatalogCard from "@/components/molecules/CatalogCard";
 import Button from "@/components/atoms/Button";
 import Text from "@/components/atoms/Text";
@@ -8,32 +10,55 @@ interface CatalogGamesProps {
   games: Game[];
   gridClassname?: string;
   className?: string;
-  showButton?: boolean;
-  buttonLabel?: string;
   loading?: boolean;
-  onButtonClick?: () => void;
+  loadMoreButton?: {
+    render: boolean;
+    label?: string;
+    onClick: () => void;
+  };
 }
 
 export default function CatalogGames({
   games,
   gridClassname,
   className,
-  buttonLabel = "SEE MORE",
-  showButton = true,
   loading = false,
-  onButtonClick,
+  loadMoreButton,
 }: CatalogGamesProps) {
+  const { isInCart, addToCart, removeFromCart } = useCartContext();
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
   const hasGames = games?.length > 0;
 
   const renderGames = hasGames && (
     <ul
       className={`grid gap-6 sm:grid-cols-2 sm:gap-9 lg:grid-cols-3 lg:gap-12 ${gridClassname}`}
     >
-      {games.map((game) => (
-        <li key={game.id}>
-          <CatalogCard key={game.id} game={game} />
-        </li>
-      ))}
+      {games.map((game) => {
+        const inCart = isInCart(game.id);
+
+        return (
+          <li key={game.id}>
+            <CatalogCard
+              key={game.id}
+              game={game}
+              primaryButton={{
+                onClick: () =>
+                  inCart ? removeFromCart(game) : addToCart(game),
+                label: !hydrated
+                  ? "Loading..."
+                  : inCart
+                  ? "Remove"
+                  : "Add to cart",
+              }}
+            />
+          </li>
+        );
+      })}
     </ul>
   );
 
@@ -49,12 +74,12 @@ export default function CatalogGames({
     </div>
   );
 
-  const renderButton = showButton && (
+  const renderButton = loadMoreButton?.render && (
     <Button
       className="mt-6 sm:mt-12 uppercase w-full xs:w-fit"
-      onClick={onButtonClick}
+      onClick={() => loadMoreButton.onClick()}
     >
-      {buttonLabel}
+      {loadMoreButton.label || "SEE MORE"}
     </Button>
   );
 
