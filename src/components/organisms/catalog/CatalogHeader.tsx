@@ -3,17 +3,19 @@ import Text from "@/components/atoms/Text";
 import Dropdown from "@/components/molecules/Dropdown";
 
 interface CatalogHeaderProps {
-  setGenre: (genre: string) => void;
+  title?: string;
   currentGenre: string;
+  setGenre: (genre: string) => void;
 }
 
 export default function CatalogHeader({
-  setGenre,
+  title = "Top Sellers",
   currentGenre,
+  setGenre,
 }: CatalogHeaderProps) {
   return (
     <section className="grid gap-12">
-      <Text variant="h1">Top Sellers</Text>
+      <Text variant="h1">{title}</Text>
       <Dropdown
         className="w-full xs:w-fit xs:ml-auto"
         selectCn="w-full"
