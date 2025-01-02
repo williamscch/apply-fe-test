@@ -18,34 +18,19 @@ export async function GET(request: Request) {
 
   if (isNaN(page) || page < 1) page = 1;
 
-  try {
-    let games = filterGamesByGenre(allGames, genre);
+  let games = filterGamesByGenre(allGames, genre);
 
-    await delay(2000);
+  await delay(2000);
 
-    const paginatedGames = paginate<Game>(games, page, ITEMS_PER_PAGE);
+  const paginatedGames = paginate<Game>(games, page, ITEMS_PER_PAGE);
 
-    if (paginatedGames.length === 0) {
-      return Response.json(
-        { message: "No games found for given request", games: [] },
-        { status: 404 }
-      );
-    }
+  const totalPages = Math.ceil(games.length / ITEMS_PER_PAGE);
+  const currentPage = page;
 
-    const totalPages = Math.ceil(games.length / ITEMS_PER_PAGE);
-    const currentPage = page;
-
-    return Response.json({
-      games: paginatedGames,
-      availableFilters,
-      totalPages,
-      currentPage,
-    });
-  } catch (err) {
-    const error = err as Error;
-    return Response.json(
-      { message: "An error occurred", error: error.message },
-      { status: 500 }
-    );
-  }
+  return Response.json({
+    games: paginatedGames,
+    availableFilters,
+    totalPages,
+    currentPage,
+  });
 }

@@ -2,51 +2,66 @@ import { useState, useEffect } from "react";
 import { Game } from "@/types/games";
 import { fetchGames } from "@/services/games";
 
-const useGames = (
+export function useGames(
   initialGames: Game[] = [],
   initialGenre = "",
-  initialPage = 1
-) => {
+  initialTotalPages = 0
+) {
   const [games, setGames] = useState<Game[]>(initialGames);
   const [genre, setGenre] = useState(initialGenre);
-  const [page, setPage] = useState(initialPage);
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [totalPages, setTotalPages] = useState(initialTotalPages);
+  const [hasFetchedInitialData, setHasFetchedInitialData] = useState(false);
+
+  const loadMoreEnabled = totalPages > 1 && page < totalPages && !loading;
+
+  const handleLoadMore = () => {
+    const newPage = page + 1;
+    if (newPage > totalPages || newPage < 1) return;
+    setPage(newPage);
+  };
 
   useEffect(() => {
-    const handleFetching = async () => {
+    const fetchAndSetGames = async () => {
       setLoading(true);
+      setError(null);
       try {
-        const data = await fetchGames(genre === "all" ? "" : genre, page);
+        const data = await fetchGames(genre, page);
         setGames((prevGames) =>
           page === 1 ? data.games : [...prevGames, ...data.games]
         );
-        setLoading(false);
+        setTotalPages(data.totalPages);
       } catch (err) {
-        const error = err as Error;
-        setError(error?.message);
+        setError((err as Error).message || "Something went wrong");
+      } finally {
         setLoading(false);
       }
     };
 
-    handleFetching();
+    if (hasFetchedInitialData) {
+      fetchAndSetGames();
+    } else {
+      setHasFetchedInitialData(true);
+    }
   }, [genre, page]);
 
-  // Reset games and page when genre changes
   useEffect(() => {
-    setGames([]);
-    setPage(1);
+    if (hasFetchedInitialData) {
+      setPage(1);
+      setGames([]);
+    }
   }, [genre]);
 
   return {
     games,
     genre,
-    setGenre,
-    page,
-    setPage,
     loading,
     error,
+    totalPages,
+    loadMoreEnabled,
+    setGenre,
+    handleLoadMore,
   };
-};
-
-export default useGames;
+}

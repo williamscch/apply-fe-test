@@ -1,24 +1,19 @@
 import { fetchGames } from "@/services/games";
-import PageTemplate from "@/components/templates/shared/PageTemplate";
-import CatalogTemplate from "@/components/templates/catalog/CatalogTemplate";
+import CatalogPage from "@/components/pages/catalog/CatalogPage";
 
-export default async function Home({
+export default async function Page({
   searchParams,
 }: {
-  searchParams: { genre?: string; page?: string };
+  searchParams: { genre?: string };
 }) {
   const genre = searchParams.genre || "";
-  const page = parseInt(searchParams.page || "1", 10);
-
-  const { games } = await fetchGames(genre, page);
+  const { games, totalPages } = await fetchGames(genre);
 
   return (
-    <PageTemplate>
-      <CatalogTemplate
-        initialGames={games}
-        initialGenre={genre}
-        initialPage={page}
-      />
-    </PageTemplate>
+    <CatalogPage
+      initialTotalPages={totalPages}
+      initialGames={games}
+      initialGenre={genre}
+    />
   );
 }
