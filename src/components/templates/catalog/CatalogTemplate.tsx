@@ -20,7 +20,7 @@ export default function CatalogTemplate({
   onLoadMore,
 }: CatalogTemplateProps) {
   return (
-    <section className="flex flex-col gap-12 pt-12">
+    <section className="flex flex-col gap-8 md:gap-12 pt-8 md:pt-12">
       <CatalogHeader currentGenre={currentGenre} setGenre={onGenreChange} />
       <CatalogGames
         games={games}

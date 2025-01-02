@@ -14,7 +14,7 @@ export default function CatalogHeader({
   setGenre,
 }: CatalogHeaderProps) {
   return (
-    <section className="grid gap-12">
+    <section className="grid gap-8 md:gap-12">
       <Text variant="h1">{title}</Text>
       <Dropdown
         className="w-full xs:w-fit xs:ml-auto"
