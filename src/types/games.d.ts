@@ -7,3 +7,10 @@ export interface Game {
   price: number;
   isNew: boolean;
 }
+
+export interface GamesResponse {
+  games: Game[];
+  availableFilters: string[];
+  totalPages: number;
+  currentPage: number;
+}

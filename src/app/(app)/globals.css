@@ -17,7 +17,8 @@
     --border-contrast: #3b3b3b;
 
     /* Text colors */
-    --text-light: #737373;
+    --text-light: #ffffff;
+    --text-neutral: #737373;
     --text-contrast: #3b3b3b;
   }
 }
