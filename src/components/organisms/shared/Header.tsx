@@ -5,16 +5,16 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ROUTES } from "@/config/routes";
 import { useCartContext } from "@/context/CartContext";
-import Icon from "@/components/atoms/Icon";
+import Icon, { IconName } from "@/components/atoms/Icon";
 import Badge from "@/components/atoms/Badge";
 
 export default function Header() {
+  const { totalQuantity } = useCartContext();
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     setHydrated(true);
   }, []);
-  const { totalQuantity } = useCartContext();
 
   return (
     <header className="sticky top-0 left-0 w-full h-16 bg-surface_neutral py-5 px-4 z-50">
@@ -32,7 +32,7 @@ export default function Header() {
 
         <div className="relative">
           <Link href={ROUTES.cart} id={`${ROUTES.cart}-header-link`}>
-            <Icon name="cart" />
+            <Icon name={IconName.cart} />
           </Link>
           {totalQuantity && hydrated ? (
             <Badge

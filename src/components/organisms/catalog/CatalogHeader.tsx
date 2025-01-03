@@ -1,6 +1,6 @@
 import { availableFilters } from "@/constants/gamesFilters";
-import Text from "@/components/atoms/Text";
 import Dropdown from "@/components/molecules/Dropdown";
+import PageHeader from "@/components/molecules/PageHeader";
 
 interface CatalogHeaderProps {
   title?: string;
@@ -9,13 +9,13 @@ interface CatalogHeaderProps {
 }
 
 export default function CatalogHeader({
-  title = "Top Sellers",
+  title = "Catalog",
   currentGenre,
   setGenre,
 }: CatalogHeaderProps) {
   return (
-    <section className="grid gap-12">
-      <Text variant="h1">{title}</Text>
+    <section className="grid gap-8 md:gap-12">
+      <PageHeader title={title} />
       <Dropdown
         className="w-full xs:w-fit xs:ml-auto"
         selectCn="w-full"

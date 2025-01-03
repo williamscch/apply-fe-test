@@ -1,4 +1,5 @@
-import Icon from "@/components/atoms/Icon";
+import { cn } from "@/utils/cn";
+import Icon, { IconName } from "@/components/atoms/Icon";
 import Label from "@/components/atoms/Label";
 import Select from "@/components/atoms/Select";
 
@@ -27,7 +28,7 @@ export default function Dropdown({
 }: DropdownProps) {
   return (
     <div
-      className={`relative flex items-center gap-6 w-fit ${className}`}
+      className={cn("relative flex items-center gap-6 w-fit", className)}
       id={`${id}-container`}
     >
       <Label className={labelCn} htmlFor={`${id}-select`}>
@@ -43,7 +44,7 @@ export default function Dropdown({
         defaultOption={defaultOption}
       />
       <Icon
-        name="dropdown"
+        name={IconName.dropdown}
         color="#8F8F8F"
         className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
       />

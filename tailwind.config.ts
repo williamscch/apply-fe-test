@@ -28,17 +28,13 @@ const config: Config = {
         text_neutral: "var(--text-neutral)",
         text_contrast: "var(--text-contrast)",
       },
-      borderWidth: {
-        half: "0.5px",
-      },
       gridTemplateColumns: {
         "2fr_1fr": "2fr 1fr",
+        "4fr_3fr": "4fr 3fr",
       },
       aspectRatio: {
         "1_16": "1.16",
         "1_38": "1.38",
-        "1_64": "1.64",
-        "1_90": "1.90",
       },
     },
   },

@@ -24,6 +24,7 @@ export default function CatalogPage({
   return (
     <PageTemplate>
       <CatalogTemplate
+        pageTitle="Top Sellers"
         games={games}
         currentGenre={currentGenre}
         loading={loading}

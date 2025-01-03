@@ -1,6 +1,5 @@
 "use client";
 
-import { Game } from "@/types/games";
 import React, {
   createContext,
   useContext,
@@ -8,6 +7,8 @@ import React, {
   useMemo,
   useEffect,
 } from "react";
+import { Game } from "@/types/games";
+import { formatPrice } from "@/utils/formatPrice";
 
 const initialCartState: Game[] = [];
 
@@ -34,7 +35,7 @@ function cartReducer(state: Game[], action: CartAction): Game[] {
 
 const CartContext = createContext<{
   cart: Game[];
-  totalPrice: number;
+  totalPrice: string;
   totalQuantity: number;
   addToCart: (game: Game) => void;
   removeFromCart: (game: Game) => void;
@@ -42,7 +43,7 @@ const CartContext = createContext<{
   isInCart: (id: string) => boolean;
 }>({
   cart: initialCartState,
-  totalPrice: 0,
+  totalPrice: "0.00",
   totalQuantity: 0,
   addToCart: () => {},
   removeFromCart: () => {},
@@ -64,7 +65,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   });
 
   const totalPrice = useMemo(
-    () => cart.reduce((acc, item) => acc + item.price, 0),
+    () => formatPrice(cart.reduce((acc, item) => acc + item.price, 0)),
     [cart]
   );
   const totalQuantity = useMemo(() => cart.length, [cart]);

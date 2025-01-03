@@ -1,3 +1,5 @@
+import { cn } from "@/utils/cn";
+
 interface TextProps {
   children: React.ReactNode;
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "span";
@@ -14,8 +16,8 @@ export default function Text({
   className = "",
 }: TextProps) {
   const variantStyles = {
-    h1: "text-4xl font-bold",
-    h2: "text-2xl font-bold",
+    h1: "text-2xl md:text-4xl font-bold",
+    h2: "text-xl md:text-2xl font-bold",
     h3: "text-xl font-bold",
     h4: "text-lg font-bold",
     h5: "text-base font-bold text-text_neutral",
@@ -26,7 +28,7 @@ export default function Text({
   const Component = variant as keyof JSX.IntrinsicElements;
 
   return (
-    <Component className={`${variantStyles[variant]} ${className}`}>
+    <Component className={cn(variantStyles[variant], className)}>
       {children}
     </Component>
   );

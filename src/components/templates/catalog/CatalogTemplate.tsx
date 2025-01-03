@@ -3,6 +3,7 @@ import CatalogGames from "@/components/organisms/catalog/CatalogGames";
 import CatalogHeader from "@/components/organisms/catalog/CatalogHeader";
 
 interface CatalogTemplateProps {
+  pageTitle?: string;
   games: Game[];
   currentGenre: string;
   loading: boolean;
@@ -12,6 +13,7 @@ interface CatalogTemplateProps {
 }
 
 export default function CatalogTemplate({
+  pageTitle,
   games,
   currentGenre,
   loading,
@@ -20,8 +22,12 @@ export default function CatalogTemplate({
   onLoadMore,
 }: CatalogTemplateProps) {
   return (
-    <section className="flex flex-col gap-12 pt-12">
-      <CatalogHeader currentGenre={currentGenre} setGenre={onGenreChange} />
+    <section className="flex flex-col gap-8 md:gap-12">
+      <CatalogHeader
+        title={pageTitle}
+        currentGenre={currentGenre}
+        setGenre={onGenreChange}
+      />
       <CatalogGames
         games={games}
         loading={loading}

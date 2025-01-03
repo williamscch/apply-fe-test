@@ -1,3 +1,5 @@
+import { cn } from "@/utils/cn";
+
 export interface ButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   children: React.ReactNode;
@@ -25,7 +27,7 @@ export default function Button({
   return (
     <button
       type="button"
-      className={`${baseClass} ${variantClasses[variant]} ${className}`}
+      className={cn(baseClass, variantClasses[variant], className)}
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
     >

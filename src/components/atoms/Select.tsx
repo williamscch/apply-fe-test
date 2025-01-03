@@ -1,3 +1,5 @@
+import { cn } from "@/utils/cn";
+
 export interface SelectProps {
   id: string;
   label: string;
@@ -19,7 +21,10 @@ export default function Select({
 }: SelectProps) {
   return (
     <select
-      className={`border-none outline-none appearance-none bg-transparent text-xl px-4 cursor-pointer ${className}`}
+      className={cn(
+        "border-none outline-none appearance-none bg-transparent text-xl px-4 cursor-pointer",
+        className
+      )}
       value={value}
       inputMode="text"
       id={id}
