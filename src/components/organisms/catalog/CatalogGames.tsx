@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Game } from "@/types/games";
 import { useCartContext } from "@/context/CartContext";
-import CatalogCard from "@/components/molecules/CatalogCard";
+import GameCard from "@/components/molecules/GameCard";
 import Button from "@/components/atoms/Button";
 import Text from "@/components/atoms/Text";
 import Loader from "@/components/molecules/Loader";
@@ -14,7 +14,7 @@ interface CatalogGamesProps {
   loadMoreButton?: {
     render: boolean;
     label?: string;
-    onClick: () => void;
+    onClick?: () => void;
   };
 }
 
@@ -43,10 +43,11 @@ export default function CatalogGames({
 
         return (
           <li key={game.id}>
-            <CatalogCard
+            <GameCard
+              template="catalog"
               key={game.id}
               game={game}
-              primaryButton={{
+              button={{
                 onClick: () =>
                   inCart ? removeFromCart(game) : addToCart(game),
                 label: !hydrated
@@ -77,7 +78,7 @@ export default function CatalogGames({
   const renderButton = loadMoreButton?.render && (
     <Button
       className="mt-6 sm:mt-12 uppercase w-full xs:w-fit"
-      onClick={() => loadMoreButton.onClick()}
+      onClick={() => loadMoreButton.onClick?.()}
     >
       {loadMoreButton.label || "SEE MORE"}
     </Button>

@@ -33,6 +33,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         "2fr_1fr": "2fr 1fr",
+        "4fr_3fr": "4fr 3fr",
       },
       aspectRatio: {
         "1_16": "1.16",
