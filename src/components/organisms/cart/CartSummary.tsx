@@ -1,10 +1,13 @@
+import { useRouter } from "next/navigation";
 import { useCartContext } from "@/context/CartContext";
+import { ROUTES } from "@/config/routes";
 import Card from "@/components/atoms/Card";
 import Text from "@/components/atoms/Text";
 import Button from "@/components/atoms/Button";
 
 function CartSummary() {
-  const { cart, totalPrice, totalQuantity } = useCartContext();
+  const router = useRouter();
+  const { cart, totalPrice, totalQuantity, clearCart } = useCartContext();
   const cartGames = cart?.length > 0;
 
   if (cartGames)
@@ -35,7 +38,20 @@ function CartSummary() {
             </div>
           </div>
         </Card>
-        <Button className="w-full">Checkout</Button>
+        <Button
+          className="w-full"
+          onClick={() => {
+            const confirm = window.confirm(
+              `Checkout ${totalQuantity} items for ${totalPrice}?`
+            );
+            if (confirm) {
+              clearCart();
+              router.push(ROUTES.home);
+            }
+          }}
+        >
+          Checkout
+        </Button>
       </section>
     );
 
