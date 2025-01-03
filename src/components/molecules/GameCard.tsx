@@ -6,6 +6,22 @@ import Button from "@/components/atoms/Button";
 import Text from "@/components/atoms/Text";
 import Card from "@/components/atoms/Card";
 import Badge from "@/components/atoms/Badge";
+import dynamic from "next/dynamic";
+
+const DynamicButton = dynamic(
+  () =>
+    import("@/components/molecules/DynamicButton").then(
+      (module) => module.default
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <Button variant="outline" className="w-full mt-auto uppercase" disabled>
+        Loading...
+      </Button>
+    ),
+  }
+);
 
 interface GameCardProps {
   template: "catalog" | "cart";
@@ -45,7 +61,7 @@ export default function GameCard({
           <Text variant="h5" className="uppercase">
             {game.genre}
           </Text>
-          <div className="grid grid-cols-2fr_1fr w-full gap-1">
+          <div className="grid grid-cols-2fr_1fr gap-1">
             <Text variant="h4">{game.name}</Text>
             <Text variant="h3" className="text-end">
               ${game.price}
@@ -54,13 +70,12 @@ export default function GameCard({
         </div>
 
         {button ? (
-          <Button
+          <DynamicButton
+            label={button.label || "Add to cart"}
+            onClick={() => button.onClick?.(game)}
             variant="outline"
             className="w-full mt-auto uppercase"
-            onClick={() => button.onClick?.(game)}
-          >
-            {button.label || "Add to cart"}
-          </Button>
+          />
         ) : null}
       </div>
     </Card>

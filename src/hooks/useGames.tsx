@@ -48,6 +48,12 @@ export function useGames(
   }, [genre, page]);
 
   useEffect(() => {
+    if (genre !== initialGenre) {
+      setGenre(initialGenre);
+    }
+  }, [initialGenre]);
+
+  useEffect(() => {
     if (hasFetchedInitialData) {
       setPage(1);
       setGames([]);

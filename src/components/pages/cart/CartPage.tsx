@@ -1,25 +1,25 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useCartContext } from "@/context/CartContext";
 import { ROUTES } from "@/config/routes";
 import { IconName } from "@/components/atoms/Icon";
-import CartTemplate from "@/components/templates/cart/CartTemplate";
 import PageTemplate from "@/components/templates/shared/PageTemplate";
+import Loader from "@/components/molecules/Loader";
+
+const CartTemplate = dynamic(
+  () => import("@/components/templates/cart/CartTemplate"),
+  {
+    ssr: false,
+    loading: () => <Loader className="pt-36 md:pt-56" />,
+  }
+);
 
 export default function CartPage() {
   const { totalQuantity } = useCartContext();
-  const [hydrated, setHydrated] = useState(false);
 
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-
-  const subtitle = !hydrated
-    ? "..."
-    : totalQuantity > 0
-    ? `${totalQuantity} items`
-    : "No items";
+  const subtitle = totalQuantity > 0 ? `${totalQuantity} items` : "No items";
 
   return (
     <PageTemplate>
