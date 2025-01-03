@@ -1,7 +1,5 @@
 "use client";
 
-import { Game } from "@/types/games";
-import { formatPrice } from "@/utils/formatPrice";
 import React, {
   createContext,
   useContext,
@@ -9,6 +7,8 @@ import React, {
   useMemo,
   useEffect,
 } from "react";
+import { Game } from "@/types/games";
+import { formatPrice } from "@/utils/formatPrice";
 
 const initialCartState: Game[] = [];
 

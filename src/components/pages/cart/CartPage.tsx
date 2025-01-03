@@ -1,11 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useCartContext } from "@/context/CartContext";
 import { ROUTES } from "@/config/routes";
 import { IconName } from "@/components/atoms/Icon";
 import CartTemplate from "@/components/templates/cart/CartTemplate";
 import PageTemplate from "@/components/templates/shared/PageTemplate";
-import { useEffect, useState } from "react";
 
 export default function CartPage() {
   const { totalQuantity } = useCartContext();
