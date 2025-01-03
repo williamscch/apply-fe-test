@@ -1,22 +1,17 @@
+import GameCard from "@/components/molecules/GameCard";
 import { useCartContext } from "@/context/CartContext";
 import { cn } from "@/utils/cn";
-import GameCard from "@/components/molecules/GameCard";
 
-interface CartGamesProps {
-  gridClassname?: string;
-  className?: string;
-}
-export default function CartGames({
-  gridClassname,
-  className,
-}: CartGamesProps) {
+interface CartGamesProps {}
+
+export default function CartGames({}: CartGamesProps) {
   const { cart, removeFromCart } = useCartContext();
 
   const cartGames = cart?.length > 0;
 
   return (
-    <section className={`grid ${className}`}>
-      <ul className={`grid ${gridClassname}`}>
+    <section>
+      <ul className="grid">
         {cartGames &&
           cart.map((game, i) => {
             const isLast = i === cart.length - 1;

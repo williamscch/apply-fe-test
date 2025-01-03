@@ -1,3 +1,5 @@
+import { cn } from "@/utils/cn";
+
 interface LabelProps {
   htmlFor: string;
   children: string;
@@ -12,7 +14,7 @@ export default function Label({
   return (
     <label
       htmlFor={htmlFor}
-      className={`text-xl leading-tight font-bold ${className}`}
+      className={cn("text-xl leading-tight font-bold", className)}
     >
       {children}
     </label>

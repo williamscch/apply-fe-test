@@ -8,7 +8,6 @@ import Loader from "@/components/molecules/Loader";
 
 interface CatalogGamesProps {
   games: Game[];
-  gridClassname?: string;
   className?: string;
   loading?: boolean;
   loadMoreButton?: {
@@ -20,8 +19,6 @@ interface CatalogGamesProps {
 
 export default function CatalogGames({
   games,
-  gridClassname,
-  className,
   loading = false,
   loadMoreButton,
 }: CatalogGamesProps) {
@@ -35,9 +32,7 @@ export default function CatalogGames({
   const hasGames = games?.length > 0;
 
   const renderGames = hasGames && (
-    <ul
-      className={`grid gap-6 sm:grid-cols-2 sm:gap-9 lg:grid-cols-3 lg:gap-12 ${gridClassname}`}
-    >
+    <ul className="grid gap-6 sm:grid-cols-2 sm:gap-9 lg:grid-cols-3 lg:gap-12">
       {games.map((game) => {
         const inCart = isInCart(game.id);
 
@@ -85,7 +80,7 @@ export default function CatalogGames({
   );
 
   return (
-    <section className={`grid ${className}`}>
+    <section>
       {renderGames}
       {renderNoGames}
       {renderLoader}

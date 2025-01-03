@@ -1,3 +1,5 @@
+import { cn } from "@/utils/cn";
+
 interface TextProps {
   children: React.ReactNode;
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "span";
@@ -26,7 +28,7 @@ export default function Text({
   const Component = variant as keyof JSX.IntrinsicElements;
 
   return (
-    <Component className={`${variantStyles[variant]} ${className}`}>
+    <Component className={cn(variantStyles[variant], className)}>
       {children}
     </Component>
   );

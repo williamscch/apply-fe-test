@@ -1,4 +1,5 @@
 import Icon, { IconName } from "@/components/atoms/Icon";
+import { cn } from "@/utils/cn";
 
 interface LoaderProps {
   iconSize?: number;
@@ -13,7 +14,7 @@ export default function Loader({
 }: LoaderProps) {
   return (
     <div
-      className={`flex-1 grid place-items-center py-16 ${className}`}
+      className={cn("flex-1 grid place-items-center py-16", className)}
       role="status"
       aria-live="polite"
     >

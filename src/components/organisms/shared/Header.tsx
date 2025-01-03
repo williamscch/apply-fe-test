@@ -9,12 +9,12 @@ import Icon, { IconName } from "@/components/atoms/Icon";
 import Badge from "@/components/atoms/Badge";
 
 export default function Header() {
+  const { totalQuantity } = useCartContext();
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     setHydrated(true);
   }, []);
-  const { totalQuantity } = useCartContext();
 
   return (
     <header className="sticky top-0 left-0 w-full h-16 bg-surface_neutral py-5 px-4 z-50">
