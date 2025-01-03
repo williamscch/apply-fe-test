@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Game } from "@/types/games";
 import { useCartContext } from "@/context/CartContext";
 import GameCard from "@/components/molecules/GameCard";
@@ -23,11 +22,6 @@ export default function CatalogGames({
   loadMoreButton,
 }: CatalogGamesProps) {
   const { isInCart, addToCart, removeFromCart } = useCartContext();
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
 
   const hasGames = games?.length > 0;
 
@@ -45,11 +39,7 @@ export default function CatalogGames({
               button={{
                 onClick: () =>
                   inCart ? removeFromCart(game) : addToCart(game),
-                label: !hydrated
-                  ? "Loading..."
-                  : inCart
-                  ? "Remove"
-                  : "Add to cart",
+                label: inCart ? "Remove" : "Add to cart",
               }}
             />
           </li>

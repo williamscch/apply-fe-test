@@ -12,6 +12,7 @@ export default function Footer() {
             width={170}
             height={44}
             alt="apply-logo"
+            priority
           />
         </Link>
       </div>

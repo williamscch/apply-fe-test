@@ -26,6 +26,7 @@ export default function Header() {
               width={150}
               height={24}
               alt="site-logo"
+              priority
             />
           </Link>
         </div>
