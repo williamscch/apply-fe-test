@@ -1,12 +1,4 @@
-export interface Game {
-  id: string;
-  genre: string;
-  image: string;
-  name: string;
-  description: string;
-  price: number;
-  isNew: boolean;
-}
+import { Game } from "@/types/games";
 
 // Mock games data
 export const allGames: Game[] = [
@@ -307,10 +299,3 @@ export const allGames: Game[] = [
     isNew: false,
   },
 ];
-
-export const availableFilters = Array.from(
-  new Set(allGames.map((game) => game.genre))
-);
-
-export const delay = (ms: number) =>
-  new Promise((resolve) => setTimeout(resolve, ms));

@@ -8,10 +8,33 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      screens: {
+        xxs: "320px",
+        xs: "480px",
+      },
+      fontSize: {
+        xxs: ["10px", "10px"],
+      },
+      colors: {
+        surface_light: "var(--surface-light)",
+        surface_neutral: "var(--surface-neutral)",
+        surface_muted: "var(--surface-muted)",
+        surface_interactive: "var(--surface-interactive)",
+        surface_contrast: "var(--surface-contrast)",
+        border_light: "var(--border-light)",
+        border_neutral: "var(--border-neutral)",
+        border_contrast: "var(--border-contrast)",
+        text_light: "var(--text-light)",
+        text_neutral: "var(--text-neutral)",
+        text_contrast: "var(--text-contrast)",
+      },
+      gridTemplateColumns: {
+        "2fr_1fr": "2fr 1fr",
+        "4fr_3fr": "4fr 3fr",
+      },
+      aspectRatio: {
+        "1_16": "1.16",
+        "1_38": "1.38",
       },
     },
   },
