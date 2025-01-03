@@ -28,6 +28,7 @@ export default function Dropdown({
 }: DropdownProps) {
   return (
     <div
+      data-testid="test-dropdown-container"
       className={cn("relative flex items-center gap-6 w-fit", className)}
       id={`${id}-container`}
     >

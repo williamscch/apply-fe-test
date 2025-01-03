@@ -112,7 +112,7 @@ export default function GameCard({
           </Text>
         </div>
         <Text variant="h3" className="mt-auto lg:pr-4 text-end">
-          {game.price}
+          ${game.price}
         </Text>
       </div>
 

@@ -6,8 +6,12 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
-  testEnvironment: "jest-environment-jsdom",
+  testEnvironment: "jsdom",
   moduleNameMapper: {
+    "^next/image$": "<rootDir>/__mocks__/next/image.js",
+    "^next/link$": "<rootDir>/__mocks__/next/link.js",
+    "^next/navigation$": "<rootDir>/__mocks__/next/navigation.js",
+    "^next/dynamic$": "<rootDir>/__mocks__/next/dynamic.js",
     "^@/components/(.*)$": "<rootDir>/src/components/$1",
     "^@/contexts/(.*)$": "<rootDir>/src/contexts/$1",
   },
