@@ -13,7 +13,7 @@ const customJestConfig = {
     "^next/navigation$": "<rootDir>/__mocks__/next/navigation.js",
     "^next/dynamic$": "<rootDir>/__mocks__/next/dynamic.js",
     "^@/components/(.*)$": "<rootDir>/src/components/$1",
-    "^@/contexts/(.*)$": "<rootDir>/src/contexts/$1",
+    "^@/context/(.*)$": "<rootDir>/src/context/$1",
   },
   moduleDirectories: ["node_modules", "<rootDir>"],
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],

@@ -16,7 +16,9 @@ function CartSummary() {
         <Card className="h-fit py-6 px-4 md:py-8 md:px-6 flex flex-col gap-6 md:gap-8">
           <div className="grid gap-3">
             <Text variant="h2">Order Summary</Text>
-            <Text variant="span">{totalQuantity} items</Text>
+            <Text variant="span">
+              {totalQuantity} {totalQuantity === 1 ? "Item" : "Items"}
+            </Text>
           </div>
 
           <div className="grid gap-6 mb-5">
@@ -27,7 +29,7 @@ function CartSummary() {
                   key={game.id}
                 >
                   <Text variant="span">{game.name}</Text>
-                  <Text variant="span">{game.price}</Text>
+                  <Text variant="span">${game.price}</Text>
                 </li>
               ))}
             </ul>
