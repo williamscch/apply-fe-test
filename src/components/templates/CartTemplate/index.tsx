@@ -19,7 +19,10 @@ export default function CartTemplate({
   subtitle,
 }: CartTemplateProps) {
   return (
-    <section className="flex flex-col gap-8 md:gap-12">
+    <section
+      className="flex flex-col gap-8 md:gap-12"
+      aria-label="cart-template"
+    >
       <PageHeaderWithLink title={title} subtitle={subtitle} link={link} />
       <div className="grid md:grid-cols-4fr_3fr gap-12 lg:gap-20">
         <CartGames />

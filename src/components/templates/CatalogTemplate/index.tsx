@@ -22,7 +22,10 @@ export default function CatalogTemplate({
   onLoadMore,
 }: CatalogTemplateProps) {
   return (
-    <section className="flex flex-col gap-8 md:gap-12">
+    <section
+      className="flex flex-col gap-8 md:gap-12"
+      aria-label="catalog-template"
+    >
       <CatalogHeader
         title={pageTitle}
         currentGenre={currentGenre}

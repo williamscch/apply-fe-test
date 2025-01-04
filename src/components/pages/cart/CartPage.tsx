@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
 import { useCartContext } from "@/context/CartContext";
 import { ROUTES } from "@/config/routes";
 import { IconName } from "@/components/atoms/Icon";
@@ -9,7 +8,7 @@ import PageTemplate from "@/components/templates/shared/PageTemplate";
 import Loader from "@/components/molecules/Loader";
 
 const CartTemplate = dynamic(
-  () => import("@/components/templates/cart/CartTemplate"),
+  () => import("@/components/templates/CartTemplate"),
   {
     ssr: false,
     loading: () => <Loader className="pt-36 md:pt-56" />,

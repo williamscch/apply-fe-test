@@ -3,7 +3,7 @@
 import { Game } from "@/types/games";
 import { useGames } from "@/hooks/useGames";
 import { useGenreParams } from "@/hooks/useGenreParams";
-import CatalogTemplate from "@/components/templates/catalog/CatalogTemplate";
+import CatalogTemplate from "@/components/templates/CatalogTemplate";
 import PageTemplate from "@/components/templates/shared/PageTemplate";
 
 interface CatalogPageProps {
