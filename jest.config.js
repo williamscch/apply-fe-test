@@ -6,6 +6,7 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFiles: ["<rootDir>/__mocks__/localStorage.js"],
   testEnvironment: "jsdom",
   moduleNameMapper: {
     "^next/image$": "<rootDir>/__mocks__/next/image.js",

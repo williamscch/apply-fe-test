@@ -1,5 +1,5 @@
 import { fetchGames } from "@/services/games";
-import CatalogPage from "@/components/pages/catalog/CatalogPage";
+import CatalogPage from "@/components/pages/CatalogPage";
 
 export default async function Page({
   searchParams,

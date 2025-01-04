@@ -1,6 +1,6 @@
 const dynamic = () => {
   const MockDynamicComponent = (props) => <div {...props} />;
-  MockDynamicComponent.preload = jest.fn(); // Si necesitas simular `preload`
+  MockDynamicComponent.preload = jest.fn();
   return MockDynamicComponent;
 };
 
