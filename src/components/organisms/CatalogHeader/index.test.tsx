@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { availableFilters } from "@/constants/gamesFilters";
-import CatalogHeader from "./";
+import CatalogHeader from ".";
 
 jest.mock("@/components/molecules/Dropdown", () => ({
   __esModule: true,

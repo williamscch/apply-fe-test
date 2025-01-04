@@ -1,8 +1,8 @@
 import { ROUTES } from "@/config/routes";
 import { IconName } from "@/components/atoms/Icon";
 import PageHeaderWithLink from "@/components/molecules/PageHeaderWithLink";
-import CartGames from "@/components/organisms/cart/CartGames";
-import CartSummary from "@/components/organisms/cart/CartSummary";
+import CartGames from "@/components/organisms/CartGames";
+import CartSummary from "@/components/organisms/CartSummary";
 
 interface CartTemplateProps {
   title?: string;

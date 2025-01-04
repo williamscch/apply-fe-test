@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { useCartContext } from "@/context/CartContext";
-import CartSummary from "./";
+import CartSummary from ".";
 
 jest.mock("@/context/CartContext", () => ({
   useCartContext: jest.fn(),

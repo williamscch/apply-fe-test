@@ -1,6 +1,6 @@
 import { Game } from "@/types/games";
-import CatalogGames from "@/components/organisms/catalog/CatalogGames";
-import CatalogHeader from "@/components/organisms/catalog/CatalogHeader";
+import CatalogGames from "@/components/organisms/CatalogGames";
+import CatalogHeader from "@/components/organisms/CatalogHeader";
 
 interface CatalogTemplateProps {
   pageTitle?: string;
