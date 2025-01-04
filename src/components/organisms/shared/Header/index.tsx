@@ -32,7 +32,11 @@ export default function Header() {
         </div>
 
         <div className="relative">
-          <Link href={ROUTES.cart} id={`${ROUTES.cart}-header-link`}>
+          <Link
+            href={ROUTES.cart}
+            id={`${ROUTES.cart}-header-link`}
+            aria-label="Cart Link"
+          >
             <Icon name={IconName.cart} />
           </Link>
           {totalQuantity && hydrated ? (
