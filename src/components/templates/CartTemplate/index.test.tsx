@@ -13,12 +13,12 @@ jest.mock("@/components/molecules/PageHeaderWithLink", () => ({
   ),
 }));
 
-jest.mock("@/components/organisms/cart/CartGames", () => ({
+jest.mock("@/components/organisms/CartGames", () => ({
   __esModule: true,
   default: () => <div data-testid="cart-games">CartGames Component</div>,
 }));
 
-jest.mock("@/components/organisms/cart/CartSummary", () => ({
+jest.mock("@/components/organisms/CartSummary", () => ({
   __esModule: true,
   default: () => <div data-testid="cart-summary">CartSummary Component</div>,
 }));

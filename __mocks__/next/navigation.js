@@ -7,4 +7,6 @@ const useSearchParams = jest.fn(() => ({
   toString: jest.fn(),
 }));
 
-export { useRouter, useSearchParams };
+const usePathname = jest.fn(() => "/");
+
+export { useRouter, useSearchParams, usePathname };

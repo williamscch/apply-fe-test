@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import CatalogTemplate from "./";
 
-jest.mock("@/components/organisms/catalog/CatalogHeader", () => ({
+jest.mock("@/components/organisms/CatalogHeader", () => ({
   __esModule: true,
   default: ({ title, currentGenre, setGenre }: any) => (
     <div data-testid="catalog-header">
@@ -12,7 +12,7 @@ jest.mock("@/components/organisms/catalog/CatalogHeader", () => ({
   ),
 }));
 
-jest.mock("@/components/organisms/catalog/CatalogGames", () => ({
+jest.mock("@/components/organisms/CatalogGames", () => ({
   __esModule: true,
   default: ({ games, loading, loadMoreButton }: any) => (
     <div data-testid="catalog-games">

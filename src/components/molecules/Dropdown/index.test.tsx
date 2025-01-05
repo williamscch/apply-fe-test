@@ -77,4 +77,17 @@ describe("Dropdown component", () => {
     const options = screen.queryAllByRole("option");
     expect(options).toHaveLength(1); // default opt
   });
+
+  it("applies additional className correctly", () => {
+    render(<Dropdown {...defaultProps} className="custom-class" />);
+    const container = screen.getByTestId("test-dropdown-container");
+    expect(container).toHaveClass("custom-class");
+  });
+
+  it("associates the Label and Select components with the correct 'for' and 'id' attributes", () => {
+    render(<Dropdown {...defaultProps} />);
+    const label = screen.getByText("Test Label");
+    const select = screen.getByRole("combobox");
+    expect(label).toHaveAttribute("for", `${select.id}-select`);
+  });
 });

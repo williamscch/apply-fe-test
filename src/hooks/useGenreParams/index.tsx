@@ -15,7 +15,10 @@ export function useGenreParams(initialGenre: string) {
       params.delete("genre");
     }
 
-    router.push(`${pathname}?${params.toString()}`);
+    const updatedUrl = params.toString()
+      ? `${pathname}?${params.toString()}`
+      : pathname;
+    router.push(updatedUrl);
   };
 
   useEffect(() => {
