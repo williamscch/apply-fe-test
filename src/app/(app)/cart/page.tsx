@@ -1,4 +1,4 @@
-import CartPage from "@/components/pages/cart/CartPage";
+import CartPage from "@/components/pages/CartPage";
 import React from "react";
 
 export default function page() {
